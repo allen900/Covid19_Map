@@ -30,6 +30,11 @@ body {
   left: 100%;
 }
 
+.leaflet-popup-content-wrapper {
+  /* opacity: 0.5; */
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
 .leaflet-control-container .leaflet-timeline-controls {
   box-sizing: border-box;
   width: 100%;

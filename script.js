@@ -29,9 +29,9 @@ legend.onAdd = function (map) {
 
   for (var i = 0; i < grades.length; i++) {
     for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+      div.innerHTML +=
+        '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+        grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
     }
   }
   return div;
@@ -41,30 +41,17 @@ legend.addTo(map);
 
 
 function getColor(d) {
-    return d > 1000 ? '#b10026' :
-           d > 500  ? '#e31a1c' :
-           d > 200  ? '#fc4e2a' :
-           d > 100  ? '#fd8d3c' :
-           d > 50   ? '#feb24c' :
-           d > 20   ? '#fed976' :
-           d > 10   ? '#ffeda0' :
-           d > 0    ? '#ffffcc' :
-                      '#ffffff';
+  return d > 1000 ? '#b10026' :
+    d > 500 ? '#e31a1c' :
+      d > 200 ? '#fc4e2a' :
+        d > 100 ? '#fd8d3c' :
+          d > 50 ? '#feb24c' :
+            d > 20 ? '#fed976' :
+              d > 10 ? '#ffeda0' :
+                d > 0 ? '#ffffcc' :
+                  '#ffffff';
 }
 
-//function getColor(d) {
-//  return d > 1000
-//    ? "#70284a"
-//    : d > 500
-//      ? "#b24b65"
-//      : d > 300
-//        ? "#dc7176"
-//        : d > 100
-//          ? "#f2a28a"
-//          : d > 0
-//            ? "#fbe6c5"
-//            : "white";
-//}
 function style1(feature) {
   return {
     weight: 1,
@@ -189,13 +176,13 @@ var t_recovered = 245
 
 var c_date = new Date();
 var m = c_date.getMonth() + 1;
-var zone = c_date.toLocaleTimeString('en-us',{timeZoneName:'short'}).split(' ')[2]
+var zone = c_date.toLocaleTimeString('en-us', { timeZoneName: 'short' }).split(' ')[2]
 var userAgent = navigator.userAgent;
 var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1;
 var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
-if(isIE || isIE11){
+if (isIE || isIE11) {
   var c_time = c_date.getFullYear() + "-" + m + "-" + c_date.getDate() + " " + c_date.getHours() + ":" + (Array(2).join(0) + c_date.getMinutes()).slice(-2)
-}else{
+} else {
   var c_time = c_date.getFullYear() + "-" + m + "-" + c_date.getDate() + " " + c_date.getHours() + ":" + (Array(2).join(0) + c_date.getMinutes()).slice(-2) + ' ' + zone;
 }
 
@@ -270,7 +257,7 @@ $.getJSON(query, function (cartodbdata) {
         if (zoomlevel <= 3) {
           map.removeLayer(timeline4);
         }
-      } catch(err) {console.log(err.message);}
+      } catch (err) { console.log(err.message); }
     } else if (this.value == "2") {
       try {
         map.removeLayer(timeline1);
@@ -279,7 +266,7 @@ $.getJSON(query, function (cartodbdata) {
         if (zoomlevel <= 3) {
           map.removeLayer(timeline5);
         }
-      } catch(err) {console.log(err.message);}
+      } catch (err) { console.log(err.message); }
 
     } else if (this.value == "3") {
       try {
@@ -289,7 +276,7 @@ $.getJSON(query, function (cartodbdata) {
         if (zoomlevel <= 3) {
           map.removeLayer(timeline6);
         }
-      } catch(err) {console.log(err.message);}
+      } catch (err) { console.log(err.message); }
     }
   });
 
@@ -304,7 +291,7 @@ $.getJSON(query, function (cartodbdata) {
         map.removeLayer(timeline1);
         map.removeLayer(timeline2);
         map.removeLayer(timeline3);
-      } catch(err) {console.log(err.message);}
+      } catch (err) { console.log(err.message); }
       if (radio1 == true) {
         timeline1.addTo(map);
       } else if (radio2 == true) {
@@ -332,18 +319,18 @@ info.onAdd = function (map) {
 
 info.addTo(map);
 
-$(".leaflet-control-layers-toggle").hover(function() {
-                $("#menu").css("display", "block");
-                $(this).css("display", "none");
-            }, function() {
+$(".leaflet-control-layers-toggle").hover(function () {
+  $("#menu").css("display", "block");
+  $(this).css("display", "none");
+}, function () {
 
-            });
-$("#menu").hover(function() {
+});
+$("#menu").hover(function () {
 
-            }, function() {
-                $(".leaflet-control-layers-toggle").css("display", "block");
-                $(this).css("display", "none");
-            });
+}, function () {
+  $(".leaflet-control-layers-toggle").css("display", "block");
+  $(this).css("display", "none");
+});
 //var baseMaps = {
 //    "Grayscale": grayscale,
 //    "Streets": streets
@@ -414,7 +401,7 @@ $.getJSON(query2, function (cartodbdata) {
         if (zoomlevel <= 3) {
           map.removeLayer(timeline4);
         }
-      } catch(err) {console.log(err.message);}
+      } catch (err) { console.log(err.message); }
     } else if (this.value == "2") {
       try {
         map.removeLayer(timeline4);
@@ -423,13 +410,13 @@ $.getJSON(query2, function (cartodbdata) {
         if (zoomlevel <= 3) {
           map.removeLayer(timeline5);
         }
-      } catch(err) {console.log(err.message);}
+      } catch (err) { console.log(err.message); }
     } else if (this.value == "3") {
       try {
         map.removeLayer(timeline4);
         map.removeLayer(timeline5);
         timeline6.addTo(map);
-      } catch(err) {console.log(err.message);}
+      } catch (err) { console.log(err.message); }
       if (zoomlevel <= 3) {
         map.removeLayer(timeline6);
       }
@@ -447,7 +434,7 @@ $.getJSON(query2, function (cartodbdata) {
         map.removeLayer(timeline4);
         map.removeLayer(timeline5);
         map.removeLayer(timeline6);
-      } catch(err) {console.log(err.message);}
+      } catch (err) { console.log(err.message); }
 
       if (radio1 == true) {
         timeline4.addTo(map);
@@ -461,7 +448,7 @@ $.getJSON(query2, function (cartodbdata) {
         map.removeLayer(timeline4);
         map.removeLayer(timeline5);
         map.removeLayer(timeline6);
-      } catch(err) {console.log(err.message);}
+      } catch (err) { console.log(err.message); }
       if (radio1 == true) {
         timeline1.addTo(map);
       } else if (radio2 == true) {
